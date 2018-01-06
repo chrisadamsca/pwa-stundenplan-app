@@ -1,10 +1,10 @@
 {
-  "name": "Stundeplan der HdM",
-  "short_name": "Stundenplan",
-  "start_url": "/stundenplan/",
+  "name": "Progressive Web App: Stundenplan",
+  "short_name": "PWA: Stundenplan",
+  "start_url": "/",
   "scope": "/",
   "display": "browser",
-  "theme_color": "#e31134",
+  "theme_color": "#00b1b5",
   "background_color": "#FFFFFF",
   "icons": [
     {
