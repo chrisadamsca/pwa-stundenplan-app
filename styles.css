@@ -1,0 +1,55 @@
+body,html{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  padding-top: 70px;
+}
+
+header{
+  top: 0;
+  height: 70px;
+  width: 100%;
+  background-color: #e31134;
+  position: fixed;
+}
+h1{
+  text-align: center;
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  line-height: 70px;
+  font-family: 'Arial';
+}
+h2{
+  margin-left: 5%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  width: 90%;
+  font-family: 'Arial';
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 5px 0;
+}
+h3{
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  width: 90%;
+  font-family: 'Arial';
+}
+img{
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+p{
+  width: 90%;
+  margin: 0 auto;
+  font-family: 'Arial';
+  line-height: 1.3;
+}

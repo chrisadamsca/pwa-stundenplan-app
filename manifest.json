@@ -1,0 +1,16 @@
+{
+  "name": "Stundeplan der HdM",
+  "short_name": "Stundenplan",
+  "start_url": "/stundenplan/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#e31134",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
