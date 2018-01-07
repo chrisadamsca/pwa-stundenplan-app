@@ -1,6 +1,6 @@
 {
   "Montag" : {
-    "08:15 - 09:45" : null,
+    "block1" : null,
     "10:00 - 11:30" : {
       "name" : "Physik",
       "raum" : "056"
