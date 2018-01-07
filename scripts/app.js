@@ -3,7 +3,7 @@
 
   var request = new XMLHttpRequest();
 
-  request.open("GET","../api/stundeplan.json");
+  request.open("GET","https://chrisadamsca.github.io/pwa-stundenplan-app/stundenplan.json");
   request.addEventListener('load', function(event) {
      if (request.status >= 200 && request.status < 300) {
         var days = JSON.parse(request.responseText);
