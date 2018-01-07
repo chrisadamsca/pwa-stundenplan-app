@@ -6,8 +6,8 @@
   request.open("GET","https://chrisadamsca.github.io/pwa-stundenplan-app/stundenplan.json");
   request.addEventListener('load', function(event) {
      if (request.status >= 200 && request.status < 300) {
-        var days = JSON.parse(request.responseText);
-        console.log(days);
+        // var days = JSON.parse(request.responseText);
+        console.log(request.responseText);
         // var timetable = document.getElementById("Timetable");
         // for(var i = 0; i < 7; i++){
         //   var courses = days[i].courses;
