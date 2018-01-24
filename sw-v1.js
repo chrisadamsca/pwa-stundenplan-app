@@ -15,11 +15,11 @@ self.addEventListener('install', event => {
 // FETCH Event
 self.addEventListener('fetch', event => {
   var url = new URL(event.request.url);
-
-  if(url.origin == location.origin) {
-    event.respondWith(caches.match('/offline.html'));
-    return;
-  }
+  // 
+  // if(url.origin == location.origin) {
+  //   event.respondWith(caches.match('/offline.html'));
+  //   return;
+  // }
 
   event.respondWith(
     caches.match(event.request)
