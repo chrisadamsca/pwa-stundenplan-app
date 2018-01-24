@@ -1,5 +1,4 @@
 // Version 1: Nur Offline-Error
-
 // INSTALL Event
 self.addEventListener('install', event => {
   self.skipWaiting();
