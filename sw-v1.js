@@ -4,7 +4,10 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('offline-resources-v1')
     .then(function(cache){
-      return cache.add('/index.html')
+      return cache.add('/offline-index.html')
+    })
+    .catch(function() {
+
     })
   );
 });
