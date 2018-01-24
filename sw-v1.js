@@ -1,9 +1,11 @@
 // Version 1: Nur Offline-Error
 // INSTALL Event
-self.addEventListener('install', event => {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('offline-resources-v1')
-    .then(cache => cache.add('/offline.html'))
+    .then(function(cache){
+      return cache.add('/offline.html')
+    })
   );
 });
 
