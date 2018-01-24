@@ -6,7 +6,8 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('offline-resources-v1')
     .then(cache => cache.addAll([
-      '/offline.html'
+      '/offline.html',
+      '/index.html'
     ]))
   );
 });
