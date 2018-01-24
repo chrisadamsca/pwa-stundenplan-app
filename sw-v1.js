@@ -6,8 +6,8 @@ self.addEventListener('install', function(event) {
     .then(function(cache){
       return cache.add('/offline.html')
     })
-    .catch(function() {
-
+    .catch(function(error) {
+      log("Error: ", error);
     })
   );
 });
