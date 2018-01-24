@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('offline-resources-v1')
     .then(function(cache){
-      return cache.add('/offline-index.html')
+      return cache.add('/offline.html')
     })
     .catch(function() {
 
@@ -13,17 +13,16 @@ self.addEventListener('install', function(event) {
 });
 
 // FETCH Event
-self.addEventListener('fetch', event => {
-  var url = new URL(event.request.url);
-
-  if(url.origin == location.origin) {
-    event.respondWith(caches.match('/offline-index.html'));
-    return;
-  }
-
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
-
+    fetch(event.request).catch(function() {
+      return caches.match(event.request).then(function(response) {
+        if(response) {
+          return response;
+        } else {
+          return caches.match('offline.html');
+        }
+      });
+    })
+  )
 });
