@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('offline-resources-v1')
     .then(function(cache){
-      return cache.add('/offline.html')
+      return cache.add('offline.html')
     })
     .catch(function(error) {
       console.log("Error: ", error);
@@ -20,7 +20,7 @@ self.addEventListener('fetch', function(event) {
         if(response) {
           return response;
         } else {
-          return caches.match('/offline.html');
+          return caches.match('offline.html');
         }
       });
     })
