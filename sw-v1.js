@@ -20,7 +20,7 @@ self.addEventListener('fetch', function(event) {
         if(response) {
           return response;
         } else {
-          return caches.match('offline.html');
+          return caches.match('/offline.html');
         }
       });
     })
