@@ -4,7 +4,7 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 
   event.waitUntil(
-    caches.open('offline-resources-v1.0.0')
+    caches.open('offline-resources-v1.0.0')0
     .then(cache => cache.addAll([
       '/index.html',
       '/styles.css',
