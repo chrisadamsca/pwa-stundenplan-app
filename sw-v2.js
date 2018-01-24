@@ -10,9 +10,9 @@ var CACHE_NAME  = 'offline-resources-v1',
 // INSTALL Event
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('offline-resources-v1')
+    caches.open(CACHE_NAME)
     .then(function(cache){
-      return cache.add('offline.html')
+      return cache.addAll(CACHED_URLS)
     })
     .catch(function(error) {
       console.log("Error: ", error);
