@@ -7,8 +7,9 @@
   request.addEventListener('load', function(event) {
      if (request.status >= 200 && request.status < 300) {
         var days = JSON.parse(request.responseText);
+        console.log(days);
         var timetable = document.getElementById("Timetable");
-        for(var i = 0; i < 7; i++){
+        for(var i = 0; i < 5; i++){
           var courses = days[i].vorlesungen;
           var newH = document.createElement("h2");
           var newHContent = document.createTextNode(days[i].name);
