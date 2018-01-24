@@ -1,45 +1,36 @@
-// Version 2: Offline-Error und App-Gerüst
-// INSTALL Event
-self.addEventListener('install', event => {
-  self.skipWaiting();
+// Version 1: Offline-Error & App-Shell
 
+var CACHE_NAME  = 'offline-resources-v1',
+    CACHED_URLS = [
+      'offline.html',
+      'offline.css',
+      'icon.png'
+    ];
+
+// INSTALL Event
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('offline-resources-v1.0.0')0
-    .then(cache => cache.addAll([
-      '/index.html',
-      '/styles.css',
-      '/scripts/app.js'
-    ]))
+    caches.open('offline-resources-v1')
+    .then(function(cache){
+      return cache.add('offline.html')
+    })
+    .catch(function(error) {
+      console.log("Error: ", error);
+    })
   );
 });
 
 // FETCH Event
-self.addEventListener('fetch', event => {
-  var url = new URL(event.request.url);
-
-  if(url.origin == 'https://chrisadamsca.github.io' && url.pathname == '/api/stundenplan.json') {
-    event.respondWith(handleNewsRequest(event));
-    return;
-  }
-
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
-
+    fetch(event.request).catch(function() {
+      return caches.match(event.request).then(function(response) {
+        if(response) {
+          return response;
+        } else {
+          return caches.match('offline.html');
+        }
+      });
+    })
+  )
 });
-
-// function handleNewsRequest(event) {
-//   var networkFetch = fetch(event.request);
-//
-//   event.waitUntil(
-//     networkFetch.then(response => {
-//       var responseClone = response.clone();
-//       caches.open('news')
-//         .then(cache => cache.put(event.request, responseClone));
-//     })
-//   );
-//
-//   return caches.match(event.request)
-//     .then(response => response || networkFetch);
-// }
