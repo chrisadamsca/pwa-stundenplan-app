@@ -1,14 +1,22 @@
 // INSTALL Event
-self.addEventListener('install', event => {
-  self.skipWaiting();
+var CACHE_NAME  = 'offline-resources-v3',
+    CACHED_URLS = [
+      'index.html',
+      'styles.css',
+      'scripts/app.js',
+      'icon.png'
+    ];
 
+// INSTALL Event
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('offline-resources-v1.0.0')
-    .then(cache => cache.addAll([
-      '/index.html',
-      '/styles.css',
-      '/scripts/app.js'
-    ]))
+    caches.open(CACHE_NAME)
+    .then(function(cache){
+      return cache.addAll(CACHED_URLS)
+    })
+    .catch(function(error) {
+      console.log("Error: ", error);
+    })
   );
 });
 
