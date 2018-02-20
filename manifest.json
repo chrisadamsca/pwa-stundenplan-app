@@ -1,15 +1,14 @@
 {
   "name": "Demo-PWA: Stundenplan",
   "short_name": "Stundenplan",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "https://chrisadamsca.github.io/pwa-stundenplan-app/",
   "display": "standalone",
   "theme_color": "#00b1b5",
   "background_color": "#FFFFFF",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "256x256",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
