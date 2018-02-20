@@ -3,7 +3,7 @@
 
   var request = new XMLHttpRequest();
 
-  request.open("GET","https://chrisadamsca.github.io/stundenplan-api/stundenplan.json");
+  request.open("GET","https://chrisadamsca.github.io/demo-api/stundenplan.json");
   request.addEventListener('load', function(event) {
      if (request.status >= 200 && request.status < 300) {
         var days = JSON.parse(request.responseText);
@@ -47,7 +47,7 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('sw-v2.js').then(function(registration) {
+      navigator.serviceWorker.register('sw-v3.js').then(function(registration) {
         // Registration was successful
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }).catch(function(err) {

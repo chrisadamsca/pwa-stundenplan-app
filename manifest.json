@@ -1,9 +1,9 @@
 {
-  "name": "Progressive Web App: Stundenplan",
-  "short_name": "PWA: Stundenplan",
+  "name": "Demo-PWA: Stundenplan",
+  "short_name": "Stundenplan",
   "start_url": "/",
   "scope": "/",
-  "display": "browser",
+  "display": "standalone",
   "theme_color": "#00b1b5",
   "background_color": "#FFFFFF",
   "icons": [

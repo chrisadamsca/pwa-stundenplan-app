@@ -18,8 +18,8 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   var url = new URL(event.request.url);
 
-  if(url.origin == 'https://chrisadamsca.github.io' && url.pathname == '/api/stundenplan.json') {
-    event.respondWith(handleNewsRequest(event));
+  if(url.origin == 'https://chrisadamsca.github.io' && url.pathname == '/demo-api/stundenplan.json') {
+    event.respondWith(handleStundenplanRequest(event));
     return;
   }
 
@@ -30,17 +30,17 @@ self.addEventListener('fetch', event => {
 
 });
 
-// function handleNewsRequest(event) {
-//   var networkFetch = fetch(event.request);
-//
-//   event.waitUntil(
-//     networkFetch.then(response => {
-//       var responseClone = response.clone();
-//       caches.open('news')
-//         .then(cache => cache.put(event.request, responseClone));
-//     })
-//   );
-//
-//   return caches.match(event.request)
-//     .then(response => response || networkFetch);
-// }
+function handleStundenplanRequest(event) {
+  var networkFetch = fetch(event.request);
+
+  event.waitUntil(
+    networkFetch.then(response => {
+      var responseClone = response.clone();
+      caches.open('stundenplan')
+        .then(cache => cache.put(event.request, responseClone));
+    })
+  );
+
+  return caches.match(event.request)
+    .then(response => response || networkFetch);
+}
