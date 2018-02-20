@@ -1,5 +1,3 @@
-// Version 3: App-Gerüst & Cached External Content
-
 // INSTALL Event
 self.addEventListener('install', event => {
   self.skipWaiting();
